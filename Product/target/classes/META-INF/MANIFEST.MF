@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: Product
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: SHUBHANT
+Built-By: Lenovo
 Implementation-Vendor-Id: com.cg.product
-Build-Jdk: 1.8.0_91
+Build-Jdk: 1.8.0_144
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/Product
 Created-By: Maven Integration for Eclipse

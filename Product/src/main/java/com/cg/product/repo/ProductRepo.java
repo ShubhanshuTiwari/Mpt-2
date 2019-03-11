@@ -36,8 +36,7 @@ public class ProductRepo implements IProductRepo{
 	@Override
 	@Transactional
 	public ProductDto create(ProductDto productdto) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 		 entityManager.persist(productdto);
 		 return productdto;
 	}
@@ -54,7 +53,7 @@ public class ProductRepo implements IProductRepo{
 	@Transactional
 	public ProductDto update( int id,ProductDto productdto) {
 		// TODO Auto-generated method stub
-		
+		productdto.setId(id);
 		entityManager.merge(productdto);
 		entityManager.flush();
 		return productdto;
@@ -76,13 +75,25 @@ public class ProductRepo implements IProductRepo{
 		return product;
 		 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public List<ProductDto> findByPrice(int Minprice, int Maxprice) {
+		// TODO Auto-generated method stub
+		String selAllQuery="SELECT p FROM ProductDto p WHERE price BETWEEN :min AND :max";
+		TypedQuery<ProductDto> tq=entityManager.createQuery(selAllQuery,ProductDto.class);
+		tq.setParameter("min", Minprice);
+		tq.setParameter("max", Maxprice);
+		List<ProductDto> list=tq.getResultList();
+		return list;
+	}
+
+	@Override
+	public List<String> findBypType(String producttype) {
+		// TODO Auto-generated method stub
+		Query query=entityManager.
+				createQuery("SELECT p.pName FROM ProductDto p WHERE pType=:brand");
+		query.setParameter("brand", producttype);
+		List<String> list=query.getResultList();
+		return list;
+	}
 }

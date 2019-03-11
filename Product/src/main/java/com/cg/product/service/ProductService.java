@@ -13,5 +13,7 @@ public interface ProductService {
 	public ProductDto get(int id);
 	public ProductDto update(int id,ProductDto productdto);
 	public ProductDto delete(int id);
+	public List<ProductDto> findByPrice(int Minprice,int Maxprice);
+	public List<String> findBypType(String ptype);
 	
 }
